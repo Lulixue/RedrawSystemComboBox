@@ -67,6 +67,7 @@ BEGIN_MESSAGE_MAP(CRedrawSystemComboBoxDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
     ON_BN_CLICKED(IDC_BUTTON_DISABLE_ENABLE, &CRedrawSystemComboBoxDlg::OnBnClickedButtonDisableEnable)
+    ON_MESSAGE(UMSG_COMBO_SEL_CHANGE, &CRedrawSystemComboBoxDlg::OnUmsgComboSelChange)
 END_MESSAGE_MAP()
 
 
@@ -200,4 +201,13 @@ unsigned WINAPI ThreadDisableEnableTest(LPVOID lP)
 void CRedrawSystemComboBoxDlg::OnBnClickedButtonDisableEnable()
 {
     _beginthreadex(NULL, 0, ThreadDisableEnableTest, this, 0, NULL);
+}
+
+
+afx_msg LRESULT CRedrawSystemComboBoxDlg::OnUmsgComboSelChange(WPARAM wParam, LPARAM lParam)
+{
+    int ctrlID = (int)wParam;
+    // TODO: add your ComboBox OnSelChange
+
+    return 0;
 }

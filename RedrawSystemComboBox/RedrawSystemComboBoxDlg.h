@@ -37,4 +37,6 @@ public:
     CMyComboBox m_cbDropDown;
     CMyComboBox m_cbDropList;
     afx_msg void OnBnClickedButtonDisableEnable();
+protected:
+    afx_msg LRESULT OnUmsgComboSelChange(WPARAM wParam, LPARAM lParam);
 };

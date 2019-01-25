@@ -51,6 +51,7 @@ int CMyComboBox::SetCurSel(int nSelect)
 {
 	int nRet = CComboBox::SetCurSel(nSelect);
 	::PostMessage(GetParent()->GetSafeHwnd(), UMSG_COMBO_SEL_CHANGE, (WPARAM)GetDlgCtrlID(), 0);
+    Invalidate();
 	return nRet;
 }
 
